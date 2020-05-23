@@ -39,6 +39,7 @@ export const Content = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 80px;
 
     a {
         text-decoration: none;

@@ -21,6 +21,8 @@ export const Container = styled.div`
     justify-content: space-between;
     flex-direction: column;
 
+    opacity: ${props => props.done ? 0.5 : 1 };
+
     svg {
         color: #EE6B26;
     }

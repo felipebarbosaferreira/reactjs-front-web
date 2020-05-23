@@ -71,6 +71,14 @@ function Task({match}) {
     }
 
     async function save() {
+
+        if (!macaddress) return alert('Nao informado macaddress') // TODO - implementar popover
+        if (!typeTaskSelected) return alert('Nao informado type') // TODO - implementar popover
+        if (!title) return alert('Nao informado title') // TODO - implementar popover
+        if (!description) return alert('Nao informado description') // TODO - implementar popover
+        if (!date) return alert('Nao informado macaddress') // TODO - implementar popover
+        if (!hour) return alert('Nao informado macaddress') // TODO - implementar popover
+
         if (match.params.id) {
             await api.put(`/task/${match.params.id}`, {
                 macaddress,
@@ -102,6 +110,23 @@ function Task({match}) {
             .catch(() => {
                 alert(`Error`); // TODO - implementar popover
             });
+        }
+    }
+
+    async function removeTask() {
+        const confirm = window.confirm('Confirme remover essa tarefa.')
+        if (confirm) {
+            alert("Removendo")
+            await api.delete(`/task/${match.params.id}`)
+            .then(() => {
+                alert('Sucesso!'); // TODO - implementar popover
+                setRedirect(true)
+            })
+            .catch(() => {
+                alert(`Error`); // TODO - implementar popover
+            });
+        } else {
+            alert("Ok, tarefa mantida")
         }
     }
 
@@ -167,7 +192,10 @@ function Task({match}) {
                             onChange={() => setDone(!done)} />
                         <label for="done">Concluída</label>
                     </div>
-                    <button type="button">EXCLUIR</button>
+                    
+                    {
+                        match.params.id && <button type="button" onClick={removeTask} >EXCLUIR</button>
+                    }
                 </S.Options>
 
                 <S.Save>

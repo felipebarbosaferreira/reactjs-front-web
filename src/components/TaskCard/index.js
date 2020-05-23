@@ -5,7 +5,7 @@ import * as S from './styles';
 import { getIconByKey } from '../../utils/typeIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function TaskCard({ type, title, when }) {
+function TaskCard({ type, title, when, done }) {
 
     const dateFormat = 'dd/MM/yyyy';
     const hourFormat = 'HH:mm';
@@ -14,7 +14,7 @@ function TaskCard({ type, title, when }) {
     const hour = useMemo(() => format(new Date(when), hourFormat));
 
     return (
-        <S.Container>
+        <S.Container done={done} >
             <S.TopCard>
                 <FontAwesomeIcon icon={ getIconByKey(type) } size="3x" />
                 <h3>{ title }</h3>

@@ -47,6 +47,7 @@ const iconDefault = 1,
 
 const mapIcons = new Map();
 mapIcons.set(iconDefault, faStickyNote);
+mapIcons.set(iconDefault, faStickyNote);
 mapIcons.set(iconFood, faUtensils);
 mapIcons.set(iconStudy, faBook);
 mapIcons.set(iconBell, faBell);
@@ -65,4 +66,8 @@ const getIconByKey = (key) => {
     return mapIcons.get(key)
 };
 
-export default getIconByKey;
+const getMapIcons = () => {
+    return [...mapIcons.values()];
+}
+
+export { getIconByKey, getMapIcons, };

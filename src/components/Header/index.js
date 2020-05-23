@@ -1,12 +1,12 @@
 import React from 'react';
 import * as S from './styles';
 
-import getIconByKey from '../../utils/typeIcons';
+import { getIconByKey } from '../../utils/typeIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import logo from '../../assets/logo.png';
 
-function Header() {
+function Header({ lateCount, viewNotifications }) {
   return (
     <S.Container>
       <S.LeftSide>
@@ -22,10 +22,10 @@ function Header() {
         <a href="#">SINCRONIZAR</a>
         <span className="separator"></span>
 
-        <a href="#" id="notification">
+        <button id="notification" type="button" onClick={() => viewNotifications() }>
           <FontAwesomeIcon icon={ getIconByKey(4) } size="lg" />
-          <span>3</span>
-        </a>
+          <span>{ lateCount }</span>
+        </button>
       </S.RightSide>
     </S.Container>
   );

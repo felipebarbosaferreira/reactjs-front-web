@@ -40,6 +40,10 @@ export const RightSide = styled.div`
     }
 
     #notification {
+        background: none;
+        border: none;
+        cursor: pointer;
+
         svg {
             color: #EE6B26;
         }
@@ -52,6 +56,7 @@ export const RightSide = styled.div`
             position: relative;
             top: -10px;
             right: 5px;
+            font-weight: bold;
         }
 
         &:hover {

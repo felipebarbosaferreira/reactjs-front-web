@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { format } from 'date-fns';
 import * as S from './styles';
 
-import getIconByKey from '../../utils/typeIcons';
+import { getIconByKey } from '../../utils/typeIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function TaskCard({ type, title, when }) {

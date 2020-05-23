@@ -40,19 +40,18 @@ export const RightSide = styled.div`
     }
 
     #notification {
-        img {
-            width: 25px;
-            height: 30px;
+        svg {
+            color: #EE6B26;
         }
 
         span {
             background: #FFFFFF;
             color: #EE6B26;
-            padding: 3px 7px;
+            padding: 4px 7px;
             border-radius: 50%;
             position: relative;
-            top: -20px;
-            right: 10px;
+            top: -10px;
+            right: 5px;
         }
 
         &:hover {

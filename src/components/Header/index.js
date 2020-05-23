@@ -1,14 +1,16 @@
 import React from 'react';
 import * as S from './styles';
 
+import getIconByKey from '../../utils/typeIcons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import logo from '../../assets/logo.png';
-import bell from '../../assets/bell.png';
 
 function Header() {
   return (
     <S.Container>
       <S.LeftSide>
-        <img src={logo} alt="Logo" />
+        <img src={ logo } alt="Logo" />
       </S.LeftSide>
       <S.RightSide>
         <a href="#">INÍCIO</a>
@@ -21,7 +23,7 @@ function Header() {
         <span className="separator"></span>
 
         <a href="#" id="notification">
-          <img src={bell} alt="Notificação"/>
+          <FontAwesomeIcon icon={ getIconByKey(4) } size="lg" />
           <span>3</span>
         </a>
       </S.RightSide>

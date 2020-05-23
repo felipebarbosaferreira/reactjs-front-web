@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from './styles';
+import { Link } from 'react-router-dom';
 
 import { getIconByKey } from '../../utils/typeIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,10 +14,10 @@ function Header({ lateCount, viewNotifications }) {
         <img src={ logo } alt="Logo" />
       </S.LeftSide>
       <S.RightSide>
-        <a href="#">INÍCIO</a>
+        <Link to="/">INÍCIO</Link>
         <span className="separator"></span>
 
-        <a href="#">NOVA TAREFA</a>
+        <Link to="/task">NOVA TAREFA</Link>
         <span className="separator"></span>
 
         <a href="#">SINCRONIZAR</a>

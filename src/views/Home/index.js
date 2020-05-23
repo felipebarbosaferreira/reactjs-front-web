@@ -13,19 +13,11 @@ function Home() {
   // [nome var, nome funcao para atualizar a var do state]
   const [filterActived, setFilterActived] = useState('all');
   const [tasks, setTasks] = useState([]);
-  const [lateCount, setLateCount] = useState();
 
   async function loadTasks() {
     await api.get(`/task/filter/${ filterActived }/00:19:B9:FB:E2:58`)
     .then( response => {
       setTasks(response.data)
-    });
-  }
-
-  async function lateVerify() {
-    await api.get(`/task/filter/late/00:19:B9:FB:E2:58`)
-    .then( response => {
-      setLateCount(response.data.length)
     });
   }
 
@@ -40,12 +32,11 @@ function Home() {
    */
   useEffect(() => {
     loadTasks();
-    lateVerify();
   }, [filterActived]);
 
   return (
     <S.Container>
-      <Header lateCount={ lateCount } viewNotifications={ viewNotifications } />
+      <Header viewNotifications={ viewNotifications } />
 
       <S.FilterArea>
         <button type="button" onClick={() => setFilterActived("all")}>

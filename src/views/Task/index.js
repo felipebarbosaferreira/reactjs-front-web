@@ -16,7 +16,6 @@ const iconClock = 6;
 
 function Task({match}) {
     const [redirect, setRedirect] = useState(false);
-    const [lateCount, setLateCount] = useState();
     const [typeTaskSelected, setTypeTaskSelected] = useState();
     const [id, setId] = useState();
     const [done, setDone] = useState(false);
@@ -25,13 +24,6 @@ function Task({match}) {
     const [date, setDate] = useState();
     const [hour, setHour] = useState();
     const [macaddress, setMacaddress] = useState("00:19:B9:FB:E2:58");
-
-    async function lateVerify() {
-        await api.get(`/task/filter/late/00:19:B9:FB:E2:58`)
-            .then(response => {
-                setLateCount(response.data.length)
-            });
-    }
 
     function viewNotifications() {
         // setFilterActived('late');
@@ -131,15 +123,13 @@ function Task({match}) {
     }
 
     useEffect(() => {
-        lateVerify();
-
         match.params.id && loadTaskDetail(match.params.id);
     }, []);
 
     return (
         <S.Container>
             {redirect && <Redirect to="/" />}
-            <Header lateCount={lateCount} viewNotifications={viewNotifications} />
+            <Header viewNotifications={viewNotifications} />
 
             <S.Content>
                 <S.TypeIcons>

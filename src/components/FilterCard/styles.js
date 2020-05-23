@@ -1,10 +1,30 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 300px;
-    height: 100px;
+    width: 200px;
+    height: 70px;
+    padding: 10px;
+    background: ${ props => props.actived ? '#EE6B26' : '#20295F'};
+    cursor: pointer;
 
     border-radius: 5px;
 
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    svg {
+        color: #FFFFFF;
+    }
+
+    span {
+        color: #FFFFFF;
+        font-weight: bold;
+        align-self: flex-end;
+        font-size: 18px;
+    }
+
+    &:hover {
+        background: #EE6B26;
+    }
 `;

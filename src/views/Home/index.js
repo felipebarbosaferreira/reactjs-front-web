@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as S from './styles';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -9,13 +9,16 @@ import Footer from '../../components/Footer';
 import FilterCard from '../../components/FilterCard';
 import TaskCard from '../../components/TaskCard';
 
+import isConnected from '../../utils/isConnected';
+
 function Home() {
   // [nome var, nome funcao para atualizar a var do state]
   const [filterActived, setFilterActived] = useState('all');
   const [tasks, setTasks] = useState([]);
+  const [redirect, setRedirect] = useState(false);
 
   async function loadTasks() {
-    await api.get(`/task/filter/${ filterActived }/00:19:B9:FB:E2:58`)
+    await api.get(`/task/filter/${ filterActived }/${isConnected}`)
     .then( response => {
       setTasks(response.data)
     });
@@ -31,11 +34,16 @@ function Home() {
    * e tambem toda vez que filterActived alterar valor 
    */
   useEffect(() => {
+    if (!isConnected) {
+      setRedirect(true)
+    }
+
     loadTasks();
   }, [filterActived]);
 
   return (
     <S.Container>
+      { redirect && <Redirect to="/qrcode" /> }
       <Header viewNotifications={ viewNotifications } />
 
       <S.FilterArea>

@@ -11,6 +11,8 @@ import Footer from '../../components/Footer';
 import { getMapIcons, getIconByKey } from '../../utils/typeIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import isConnected from '../../utils/isConnected';
+
 const iconCalendar = 5;
 const iconClock = 6;
 
@@ -23,7 +25,7 @@ function Task({match}) {
     const [description, setDescription] = useState();
     const [date, setDate] = useState();
     const [hour, setHour] = useState();
-    const [macaddress, setMacaddress] = useState("00:19:B9:FB:E2:58");
+    const [macaddress, setMacaddress] = useState(isConnected);
 
     function viewNotifications() {
         // setFilterActived('late');
@@ -123,6 +125,10 @@ function Task({match}) {
     }
 
     useEffect(() => {
+        if (!isConnected) {
+          setRedirect(true)
+        }
+        
         match.params.id && loadTaskDetail(match.params.id);
     }, []);
 

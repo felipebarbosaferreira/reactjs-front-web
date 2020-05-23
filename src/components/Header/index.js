@@ -9,14 +9,21 @@ import api from '../../services/api';
 
 import logo from '../../assets/logo.png';
 
+import isConnected from '../../utils/isConnected';
+
 function Header({ viewNotifications }) {
   const [lateCount, setLateCount] = useState();
 
   async function lateVerify() {
-    await api.get(`/task/filter/late/00:19:B9:FB:E2:58`)
+    await api.get(`/task/filter/late/${isConnected}`)
     .then( response => {
       setLateCount(response.data.length)
     });
+  }
+
+  async function logout() {
+    await localStorage.removeItem('@todo/macaddress');
+    window.location.reload();
   }
 
   useEffect(() => {
@@ -35,10 +42,14 @@ function Header({ viewNotifications }) {
         <Link to="/task">NOVA TAREFA</Link>
 
         <span className="separator"></span>
-        <Link to="/qrcode">SINCRONIZAR</Link>
-
         {
-          lateCount &&
+          !isConnected  
+          ? <Link to="/qrcode">SINCRONIZAR</Link>
+          : <button type="button" onClick={logout}>SAIR</button>
+        }
+        
+        {
+          lateCount ?
           <>
             <span className="separator"></span>
             <button id="notification" type="button" onClick={() => viewNotifications()}>
@@ -46,6 +57,7 @@ function Header({ viewNotifications }) {
               <span>{lateCount}</span>
             </button>
           </>
+          : ""
         }
 
       </S.RightSide>

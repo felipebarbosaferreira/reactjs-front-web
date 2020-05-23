@@ -24,6 +24,40 @@ export const Content = styled.div`
 
 export const QrCodeArea = styled.div`
     width: 100%;
-    height: 300px;
-    background: gray;
+    display: flex;
+    justify-content: center;
+`;
+
+export const ValidationCode = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+
+    span {
+        text-weight: bold;
+    }
+
+    input {
+        font-size: 18px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    button {
+        text-weight: bold;
+        background: #EE6B26;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 30px;
+        padding: 10px;
+        margin-top: 15px;
+        cursor: pointer;
+
+        &:hover {
+            background: #20295F;
+        }
+    }
 `;

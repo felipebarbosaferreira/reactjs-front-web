@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as S from './styles';
 import Qr from 'qrcode.react';
 import { Redirect } from 'react-router-dom';

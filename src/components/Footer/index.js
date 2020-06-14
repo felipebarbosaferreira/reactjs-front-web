@@ -4,7 +4,7 @@ import * as S from './styles';
 function Footer() {
   return (
     <S.Container>
-        <span>ToDo - Projeto de estudo ReactJS</span>
+        <span>Organizando a sua vida - Felipe Barbosa</span>
     </S.Container>
   );
 }

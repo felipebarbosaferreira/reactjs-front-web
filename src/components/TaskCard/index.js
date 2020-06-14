@@ -10,8 +10,8 @@ function TaskCard({ type, title, when, done }) {
     const dateFormat = 'dd/MM/yyyy';
     const hourFormat = 'HH:mm';
 
-    const date = useMemo(() => format(new Date(when), dateFormat));
-    const hour = useMemo(() => format(new Date(when), hourFormat));
+    const date = useMemo(() => format(new Date(when), dateFormat), [when]);
+    const hour = useMemo(() => format(new Date(when), hourFormat), [when]);
 
     return (
         <S.Container done={done} >

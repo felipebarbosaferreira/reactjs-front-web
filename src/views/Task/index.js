@@ -19,7 +19,6 @@ const iconClock = 6;
 function Task({match}) {
     const [redirect, setRedirect] = useState(false);
     const [typeTaskSelected, setTypeTaskSelected] = useState();
-    const [id, setId] = useState();
     const [done, setDone] = useState(false);
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
@@ -34,7 +33,7 @@ function Task({match}) {
     function showIcons(name, index) {
         return (
             <button type="button" onClick={() => setTypeTaskSelected(index)}>
-                <S.IconTypeTask className={typeTaskSelected && typeTaskSelected != index && 'inative'}>
+                <S.IconTypeTask className={typeTaskSelected && typeTaskSelected !== index && 'inative'}>
                     <FontAwesomeIcon icon={name} size="lg" />
                 </S.IconTypeTask>
             </button>
@@ -51,7 +50,6 @@ function Task({match}) {
         })
         .then(response => {
             setTypeTaskSelected(response.data.type)
-            setId(response.data.id)
             setDone(response.data.done)
             setTitle(response.data.title)
             setDescription(response.data.description)

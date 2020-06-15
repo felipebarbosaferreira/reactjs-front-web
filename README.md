@@ -1,4 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Cross Platform com React & React Native
+
+![Cross Platform](src/assets/reactProjetFelipeBarbosaFerreiraCrossPlatform.svg)
+
+
+## Android & iOS
+
+Projeto mobile em React Native se encontra no outro repositório, aqui somente o web ;)
+
+![Mobile Android iOS](src/assets/reactProjetFelipeBarbosaFerreiraMobile.svg)
+
+
+## Instalação
+```
+  Iniciando o projeto
+    npx create-react-app web
+
+    npm start
+     Starts the development server.
+
+    npm run build
+     Bundles the app into static files for production.
+
+    npm test
+     Starts the test runner.
+
+    npm run eject
+     Removes this tool and copies build dependencies, configuration files
+     and scripts into the app directory. If you do this, you can’t go back!
+
+    npm install react-router-dom --save
+```
+
+Em `src/services/api` altere/atualize o IP do seu backend.
+
+
+## #KeepRocking
+* #fullstack
+* #mobile
+* #react
+* #nodejs
+* #mongodb
+
+
+### Udemy
+
+Curso criado por Rodrigo Gonçalves Santana, link:
+
+https://www.udemy.com/course/projeto-completo-xd-nodejs-mongodb-react-native-e-react/
+
+
+## This project was bootstrapped with 
+
+[Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

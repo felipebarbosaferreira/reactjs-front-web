@@ -46,3 +46,11 @@ export const Content = styled.div`
         color: #000000;
     }
 `;
+
+export const InfomationWithoutTask = styled.div`
+    width: 100%;
+    margin: 100px 0px;
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+`;

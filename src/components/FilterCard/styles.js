@@ -4,6 +4,7 @@ export const Container = styled.div`
     width: 200px;
     height: 70px;
     padding: 10px;
+    margin: 10px;
     background: ${ props => props.actived ? '#EE6B26' : '#20295F'};
     cursor: pointer;
 

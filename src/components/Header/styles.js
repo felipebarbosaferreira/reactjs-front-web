@@ -6,6 +6,10 @@ export const Container = styled.div`
     background: #20295F;
     border-bottom: 5px solid #EE6B26;
     display: flex;
+
+    @media(max-width: 450px) {
+        height: 200px;
+    }
 `;
 
 export const LeftSide = styled.div`
@@ -28,11 +32,24 @@ export const RightSide = styled.div`
     align-items: center;
     justify-content: flex-end;
 
+    @media(max-width: 450px) {
+        height: 100%;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-around;
+        padding-right: 10px;
+    }
+
     a {
         color: #FFFFFF;
         font-weight: bold;
         text-decoration: none;
         margin: 0 10px;
+
+
+        @media(max-width: 450px) {
+            text-align: end;
+        }
 
         &:hover {
             color: #EE6B26;

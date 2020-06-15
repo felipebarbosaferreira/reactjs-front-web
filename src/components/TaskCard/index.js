@@ -14,7 +14,7 @@ function TaskCard({ type, title, when, done }) {
     const hour = useMemo(() => format(new Date(when), hourFormat), [when]);
 
     return (
-        <S.Container done={done} >
+        <S.Container done={done} className="smoothTransition">
             <S.TopCard>
                 <FontAwesomeIcon icon={ getIconByKey(type) } size="3x" />
                 <h3>{ title }</h3>

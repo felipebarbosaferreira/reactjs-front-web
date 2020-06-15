@@ -16,6 +16,15 @@
         margin: 0;
         font-family: 'Roboto', sans-serif;
       }
+
+      .smoothTransition {
+        animation: smoothTransition 1s 1;
+        animation-timing-function: linear;
+      }
+      @keyframes smoothTransition {
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
     </style>
   </head>
   <body>

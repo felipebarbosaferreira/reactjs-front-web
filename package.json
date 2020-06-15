@@ -1,6 +1,8 @@
 {
   "name": "web",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "author": "Felipe Barbosa Ferreira",
+  "description": "Projeto TODO para estudo do React JS utilizando a api com NodeJS e MongoDB",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",

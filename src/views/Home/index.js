@@ -46,7 +46,7 @@ function Home() {
       { redirect && <Redirect to="/qrcode" /> }
       <Header viewNotifications={ viewNotifications } />
 
-      <S.FilterArea>
+      <S.FilterArea className="smoothTransition">
         <button type="button" onClick={() => setFilterActived("all")}>
           <FilterCard title="Todos" actived={ filterActived === 'all' } />
         </button>
@@ -64,7 +64,7 @@ function Home() {
         </button>
       </S.FilterArea>
 
-      <S.Title>
+      <S.Title className="smoothTransition">
         <h3>
           {
             filterActived === 'late' ? 'Tarefas atrasadas' : 'Tarefas'
@@ -72,13 +72,16 @@ function Home() {
         </h3>
       </S.Title>
 
-      <S.Content>
+      <S.Content className="smoothTransition">
         {
           tasks.map(it => (
             <Link to={`/task/${it._id}`}>
               <TaskCard type={ it.type } title={ it.title } when={ it.when } done={ it.done } />
             </Link>
           ))
+        }
+        {
+          tasks.length === 0 && <S.InfomationWithoutTask>Sem tarefas por aqui ;)</S.InfomationWithoutTask>
         }
       </S.Content>
       <Footer />

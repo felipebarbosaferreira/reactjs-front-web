@@ -90,6 +90,7 @@ function Task({match}) {
         } else {
             await api.post('/task', {
                 macaddress,
+                done,
                 type: typeTaskSelected,
                 title,
                 description,
@@ -135,7 +136,7 @@ function Task({match}) {
             {redirect && <Redirect to="/" />}
             <Header viewNotifications={viewNotifications} />
 
-            <S.Content>
+            <S.Content className="smoothTransition">
                 <S.TypeIcons>
                     {
                         getMapIcons().map((it, index) => showIcons(it, index + 1))

@@ -25,7 +25,7 @@ function QrCode() {
             { redirect && <Redirect to="/" /> }
             <Header />
 
-            <S.Content>
+            <S.Content className="smoothTransition">
                 <h1>Capture o QrCode pelo APP</h1>
                 <p>suas atividades serão sincronizadas com a do seu celular.</p>
                 <S.QrCodeArea>
